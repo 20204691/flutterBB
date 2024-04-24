@@ -141,8 +141,8 @@ class _FitGetStartedPage extends State<FitGetStartedPage> {
         Divider(
           color: Colors.grey,
           thickness: 1,
-          indent: 10,
-          endIndent: 10,
+          indent: 0,
+          endIndent: 0,
         ),
       ],
     );
