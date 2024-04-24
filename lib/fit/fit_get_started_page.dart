@@ -4,7 +4,7 @@ import 'fit_get_started_page.dart';
 import 'fit_page.dart';
 
 class FitGetStartedPage extends StatefulWidget {
-  const FitGetStartedPage({super.key});
+  const FitGetStartedPage({Key? key}) : super(key: key);
 
   @override
   State<FitGetStartedPage> createState() => _FitGetStartedPage();
@@ -27,44 +27,81 @@ class _FitGetStartedPage extends State<FitGetStartedPage> {
         height: size.height,
         width: size.width,
         color: Colors.white,
-        child: Column(
-          children: [
-            const SizedBox(height: 3),
-            fitContainerBuild(
-              title: "WALKING IN PLACE",
-              subTitle: "Repeat 2 Times",
-              time: "01:00 MIN",
-              gifPath: 'assets/images/gifs/ex1.gif',
-            ),
-            const SizedBox(height: 3),
-            fitContainerBuild(
-              title: "STEPS TO THE SIDES",
-              subTitle: "Repeat 2 Times",
-              time: "01:00 MIN",
-              gifPath: 'assets/images/gifs/ex2.gif',
-            ),
-            const SizedBox(height: 3),
-            fitContainerBuild(
-              title: "SHIN OVERLAP",
-              subTitle: "Repeat 2 Times",
-              time: "01:00 MIN",
-              gifPath: 'assets/images/gifs/ex3.gif',
-            ),
-            const SizedBox(height: 3),
-            fitContainerBuild(
-              title: "SPREAD OF THE ARMS",
-              subTitle: "Repeat 2 Times",
-              time: "01:00 MIN",
-              gifPath: 'assets/images/gifs/ex4.gif',
-            ),
-            const SizedBox(height: 3),
-            fitContainerBuild(
-              title: "RAISES THE KNEES",
-              subTitle: "Repeat 2 Times",
-              time: "01:00 MIN",
-              gifPath: 'assets/images/gifs/ex5.gif',
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 3),
+              fitContainerBuild(
+                title: "WALKING IN PLACE",
+                subTitle: "Repeat 2 Times",
+                time: "01:00 MIN",
+                gifPath: 'assets/images/gifs/ex1.gif',
+              ),
+              const SizedBox(height: 3),
+              fitContainerBuild(
+                title: "STEPS TO THE SIDES",
+                subTitle: "Repeat 2 Times",
+                time: "01:00 MIN",
+                gifPath: 'assets/images/gifs/ex2.gif',
+              ),
+              const SizedBox(height: 3),
+              fitContainerBuild(
+                title: "SHIN OVERLAP",
+                subTitle: "Repeat 2 Times",
+                time: "01:00 MIN",
+                gifPath: 'assets/images/gifs/ex3.gif',
+              ),
+              const SizedBox(height: 3),
+              fitContainerBuild(
+                title: "SPREAD OF THE ARMS",
+                subTitle: "Repeat 2 Times",
+                time: "01:00 MIN",
+                gifPath: 'assets/images/gifs/ex4.gif',
+              ),
+              const SizedBox(height: 3),
+              fitContainerBuild(
+                title: "RAISES THE KNEES",
+                subTitle: "Repeat 2 Times",
+                time: "01:00 MIN",
+                gifPath: 'assets/images/gifs/ex5.gif',
+              ),
+              const SizedBox(height: 3),
+              fitContainerBuild(
+                title: "RAISES THE KNEES",
+                subTitle: "Repeat 2 Times",
+                time: "01:00 MIN",
+                gifPath: 'assets/images/gifs/ex6.gif',
+              ),
+              const SizedBox(height: 3),
+              fitContainerBuild(
+                title: "RAISES THE KNEES",
+                subTitle: "Repeat 2 Times",
+                time: "01:00 MIN",
+                gifPath: 'assets/images/gifs/ex7.gif',
+              ),
+              const SizedBox(height: 3),
+              fitContainerBuild(
+                title: "RAISES THE KNEES",
+                subTitle: "Repeat 2 Times",
+                time: "01:00 MIN",
+                gifPath: 'assets/images/gifs/ex8.gif',
+              ),
+              const SizedBox(height: 3),
+              fitContainerBuild(
+                title: "RAISES THE KNEES",
+                subTitle: "Repeat 2 Times",
+                time: "01:00 MIN",
+                gifPath: 'assets/images/gifs/ex9.gif',
+              ),
+              const SizedBox(height: 3),
+              fitContainerBuild(
+                title: "RAISES THE KNEES",
+                subTitle: "Repeat 2 Times",
+                time: "01:00 MIN",
+                gifPath: 'assets/images/gifs/ex10.gif',
+              ),
+            ],
+          ),
         ),
       ),
     );
