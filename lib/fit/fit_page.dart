@@ -8,6 +8,7 @@ class FitPage extends StatefulWidget {
   @override
   State<FitPage> createState() => _FitPage();
 }
+
 class _FitPage extends State<FitPage> {
   @override
   Widget build(BuildContext context) {
@@ -127,7 +128,7 @@ class _FitPage extends State<FitPage> {
                         ),
                         SizedBox(
                           height: 160,
-                          child: Image.asset('assets/images/gifs/ex9.gif'),
+                          child: Image.asset('assets/images/gifs/Ex9.gif'),
                         ),
                         const Icon(Icons.arrow_forward_ios)
                       ],
@@ -142,10 +143,7 @@ class _FitPage extends State<FitPage> {
         ),
       ),
     );
-
   }
-
-
 
   Widget getStartedButton() {
     return SizedBox(
@@ -153,7 +151,8 @@ class _FitPage extends State<FitPage> {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.indigo.shade400,
-          padding: const EdgeInsets.symmetric(vertical: 16), // увеличение высоты кнопки
+          padding: const EdgeInsets.symmetric(
+              vertical: 16), // увеличение высоты кнопки
         ),
         onPressed: () {
           Navigator.push(
@@ -170,6 +169,4 @@ class _FitPage extends State<FitPage> {
       ),
     );
   }
-
-
 }

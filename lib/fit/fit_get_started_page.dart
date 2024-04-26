@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-
-import 'fit_get_started_page.dart';
-import 'fit_page.dart';
+import 'package:projects/fit/fit_detail_page.dart';
 
 class FitGetStartedPage extends StatefulWidget {
-  const FitGetStartedPage({Key? key}) : super(key: key);
+  const FitGetStartedPage({super.key});
 
   @override
   State<FitGetStartedPage> createState() => _FitGetStartedPage();
@@ -91,14 +89,14 @@ class _FitGetStartedPage extends State<FitGetStartedPage> {
                 title: "RAISES THE KNEES",
                 subTitle: "Repeat 2 Times",
                 time: "01:00 MIN",
-                gifPath: 'assets/images/gifs/ex9.gif',
+                gifPath: 'assets/images/gifs/Ex9.gif',
               ),
               const SizedBox(height: 3),
               fitContainerBuild(
                 title: "RAISES THE KNEES",
                 subTitle: "Repeat 2 Times",
                 time: "01:00 MIN",
-                gifPath: 'assets/images/gifs/ex10.gif',
+                gifPath: 'assets/images/gifs/Ex10.gif',
               ),
             ],
           ),
@@ -166,7 +164,8 @@ class _FitGetStartedPage extends State<FitGetStartedPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const FitPage(),
+                      builder: (context) => const FitDetailPage(
+                          fitDataIndex: 0), // Need to refactor
                     ),
                   );
                 },
@@ -175,7 +174,7 @@ class _FitGetStartedPage extends State<FitGetStartedPage> {
             ],
           ),
         ),
-        Divider(
+        const Divider(
           color: Colors.grey,
           thickness: 1,
           indent: 0,
