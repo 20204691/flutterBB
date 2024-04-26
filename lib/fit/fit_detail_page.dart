@@ -180,22 +180,27 @@ class _FitDetailPageState extends State<FitDetailPage> {
                         style: ElevatedButton.styleFrom(
                             shape: const RoundedRectangleBorder(),
                             padding: const EdgeInsets.symmetric(
-                              vertical: 8,
+                              vertical: 10,
                               horizontal: 20,
                             )),
-                        child: const Row(
+                        child: Row(
                           children: [
-                            Icon(Icons.abc), // Change to Image
-                            SizedBox(width: 20),
-                            Column(
+                            Image.asset(
+                              'assets/images/gifs/ex2.gif', // Замените 'assets/your_gif.gif' путем к вашему GIF-файлу
+                              width: 70, // Ширина GIF-файла
+                              height: 70, // Высота GIF-файла
+                            ),
+                            const SizedBox(width: 50),
+                            const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text("Next"),
                                 Text("Seated Leg Stretch • 30 sec"),
                               ],
-                            )
+                            ),
                           ],
                         ),
+
                       ),
                     )
                   : const SizedBox(),

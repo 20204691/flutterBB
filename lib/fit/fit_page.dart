@@ -128,7 +128,7 @@ class _FitPage extends State<FitPage> {
                         ),
                         SizedBox(
                           height: 160,
-                          child: Image.asset('assets/images/gifs/Ex9.gif'),
+                          child: Image.asset('assets/images/gifs/ex9.gif'),
                         ),
                         const Icon(Icons.arrow_forward_ios)
                       ],

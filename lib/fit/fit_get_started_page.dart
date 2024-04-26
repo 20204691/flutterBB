@@ -89,7 +89,7 @@ class _FitGetStartedPage extends State<FitGetStartedPage> {
                 title: "RAISES THE KNEES",
                 subTitle: "Repeat 2 Times",
                 time: "01:00 MIN",
-                gifPath: 'assets/images/gifs/Ex9.gif',
+                gifPath: 'assets/images/gifs/ex9.gif',
               ),
               const SizedBox(height: 3),
               fitContainerBuild(
