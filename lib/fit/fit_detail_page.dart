@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -79,9 +80,13 @@ class _FitDetailPageState extends State<FitDetailPage> {
               Image.asset(
                 currentFit.gitPath,
                 fit: BoxFit.cover,
+                width: 350, // Ширина изображения
+                height: 350, // Высота изображения
               ),
-              const SizedBox(height: 20),
+
+              const SizedBox(height: 90),
               const SizedBox(height: 4),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -97,11 +102,14 @@ class _FitDetailPageState extends State<FitDetailPage> {
                         _elapsedSeconds = currentFit.seconds;
                       });
                     },
-                    child: const Icon(Icons.arrow_back),
+                    child: const Icon(
+                      Icons.skip_previous,
+                      size: 48, // Custom size of the icon
+                    ),
                   ),
                   InkWell(
-                    borderRadius: BorderRadius.circular(50),
-                    highlightColor: Colors.greenAccent,
+                    borderRadius: BorderRadius.circular(100),
+                    highlightColor: Colors.indigo.shade100,
                     onTap: () {
                       if (timer == null || !timer!.isActive) {
                         startTimer();
@@ -111,11 +119,11 @@ class _FitDetailPageState extends State<FitDetailPage> {
                       alignment: Alignment.center,
                       children: [
                         SizedBox(
-                          height: 72,
-                          width: 72,
+                          height: 100,
+                          width: 100,
                           child: CircularProgressIndicator(
                             strokeWidth: 8,
-                            backgroundColor: Colors.green,
+                            backgroundColor: Colors.indigo.shade400,
                             value: _progressValue,
                             valueColor: const AlwaysStoppedAnimation<Color>(
                                 Color.fromARGB(255, 205, 205, 205)),
@@ -124,8 +132,8 @@ class _FitDetailPageState extends State<FitDetailPage> {
                         Text(
                           '$_elapsedSeconds',
                           style: const TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.w700,
+                            fontSize: 35,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ],
@@ -144,7 +152,11 @@ class _FitDetailPageState extends State<FitDetailPage> {
                         _elapsedSeconds = currentFit.seconds;
                       });
                     },
-                    child: const Icon(Icons.arrow_forward),
+                    child: const Icon(
+                      Icons.skip_next,
+                      size: 48, // Custom size of the icon
+                    ),
+
                   ),
                 ],
               ),
@@ -202,6 +214,7 @@ class _FitDetailPageState extends State<FitDetailPage> {
               const SizedBox(height: 20),
             ],
           ),
+
         ),
       ),
     );

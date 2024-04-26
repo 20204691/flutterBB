@@ -59,12 +59,13 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.water,
+                          Icons.water_drop,
                           color: Color.fromRGBO(94, 113, 183, 1),
+                          size: 50,
                         ),
                         Text(
                           "Water",
-                          style: TextStyle(
+                          style: TextStyle(fontSize: 18,
                             color: Color.fromRGBO(94, 113, 183, 1),
                           ),
                         )
@@ -87,12 +88,13 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.medical_information_outlined,
+                          Icons.medical_services_rounded,
                           color: Color.fromRGBO(94, 113, 183, 1),
+                          size: 50,
                         ),
                         Text(
                           "Medicine",
-                          style: TextStyle(
+                          style: TextStyle(fontSize: 18,
                             color: Color.fromRGBO(94, 113, 183, 1),
                           ),
                         )
@@ -120,12 +122,13 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.food_bank,
+                          Icons.restaurant_rounded,
                           color: Color.fromRGBO(94, 113, 183, 1),
+                          size: 50,
                         ),
                         Text(
                           "Food",
-                          style: TextStyle(
+                          style: TextStyle(fontSize: 18,
                             color: Color.fromRGBO(94, 113, 183, 1),
                           ),
                         )
@@ -148,13 +151,15 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.money,
+                          Icons.wb_sunny_outlined,
                           color: Color.fromRGBO(94, 113, 183, 1),
+                          size: 50,
                         ),
                         Text(
                           "Sleep",
-                          style: TextStyle(
+                          style: TextStyle(fontSize: 18,
                             color: Color.fromRGBO(94, 113, 183, 1),
+
                           ),
                         )
                       ],
