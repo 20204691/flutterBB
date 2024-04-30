@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projects/fit/fit_detail_page.dart';
 
+import '../data/fit_data.dart';
+
 class FitGetStartedPage extends StatefulWidget {
   const FitGetStartedPage({super.key});
 
@@ -25,82 +27,97 @@ class _FitGetStartedPage extends State<FitGetStartedPage> {
         height: size.height,
         width: size.width,
         color: Colors.white,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(height: 3),
-              fitContainerBuild(
-                title: "WALKING IN PLACE",
-                subTitle: "Repeat 2 Times",
-                time: "01:00 MIN",
-                gifPath: 'assets/images/gifs/ex1.gif',
-              ),
-              const SizedBox(height: 3),
-              fitContainerBuild(
-                title: "STEPS TO THE SIDES",
-                subTitle: "Repeat 2 Times",
-                time: "01:00 MIN",
-                gifPath: 'assets/images/gifs/ex2.gif',
-              ),
-              const SizedBox(height: 3),
-              fitContainerBuild(
-                title: "SHIN OVERLAP",
-                subTitle: "Repeat 2 Times",
-                time: "01:00 MIN",
-                gifPath: 'assets/images/gifs/ex3.gif',
-              ),
-              const SizedBox(height: 3),
-              fitContainerBuild(
-                title: "SPREAD OF THE ARMS",
-                subTitle: "Repeat 2 Times",
-                time: "01:00 MIN",
-                gifPath: 'assets/images/gifs/ex4.gif',
-              ),
-              const SizedBox(height: 3),
-              fitContainerBuild(
-                title: "RAISES THE KNEES",
-                subTitle: "Repeat 2 Times",
-                time: "01:00 MIN",
-                gifPath: 'assets/images/gifs/ex5.gif',
-              ),
-              const SizedBox(height: 3),
-              fitContainerBuild(
-                title: "RAISES THE KNEES",
-                subTitle: "Repeat 2 Times",
-                time: "01:00 MIN",
-                gifPath: 'assets/images/gifs/ex6.gif',
-              ),
-              const SizedBox(height: 3),
-              fitContainerBuild(
-                title: "RAISES THE KNEES",
-                subTitle: "Repeat 2 Times",
-                time: "01:00 MIN",
-                gifPath: 'assets/images/gifs/ex7.gif',
-              ),
-              const SizedBox(height: 3),
-              fitContainerBuild(
-                title: "RAISES THE KNEES",
-                subTitle: "Repeat 2 Times",
-                time: "01:00 MIN",
-                gifPath: 'assets/images/gifs/ex8.gif',
-              ),
-              const SizedBox(height: 3),
-              fitContainerBuild(
-                title: "RAISES THE KNEES",
-                subTitle: "Repeat 2 Times",
-                time: "01:00 MIN",
-                gifPath: 'assets/images/gifs/ex9.gif',
-              ),
-              const SizedBox(height: 3),
-              fitContainerBuild(
-                title: "RAISES THE KNEES",
-                subTitle: "Repeat 2 Times",
-                time: "01:00 MIN",
-                gifPath: 'assets/images/gifs/Ex10.gif',
-              ),
-            ],
-          ),
+        child: ListView.builder(
+          itemCount: fitData.length,
+          itemBuilder: (context, index) {
+            return fitContainerBuild(
+              title: fitData[index].title,
+              subTitle: fitData[index].subTitle,
+              time: fitData[index].time,
+              gifPath: fitData[index].gitPath,
+              index: index,
+            );
+          },
         ),
+
+        // SingleChildScrollView(
+        //   child: Column(
+        //     children: [
+        //       const SizedBox(height: 3),
+        //       fitContainerBuild(
+        //         title: "WALKING IN PLACE",
+        //         subTitle: "Repeat 2 Times",
+        //         time: "01:00 MIN",
+        //         gifPath: 'assets/images/gifs/ex1.gif',
+        //         index: 0,
+        //       ),
+        //       const SizedBox(height: 3),
+        //       fitContainerBuild(
+        //         title: "STEPS TO THE SIDES",
+        //         subTitle: "Repeat 2 Times",
+        //         time: "01:00 MIN",
+        //         gifPath: 'assets/images/gifs/ex2.gif',
+        //         index: 1,
+        //       ),
+        //       const SizedBox(height: 3),
+        //       fitContainerBuild(
+        //         title: "SHIN OVERLAP",
+        //         subTitle: "Repeat 2 Times",
+        //         time: "01:00 MIN",
+        //         gifPath: 'assets/images/gifs/ex3.gif',
+        //       ),
+        //       const SizedBox(height: 3),
+        //       fitContainerBuild(
+        //         title: "SPREAD OF THE ARMS",
+        //         subTitle: "Repeat 2 Times",
+        //         time: "01:00 MIN",
+        //         gifPath: 'assets/images/gifs/ex4.gif',
+        //       ),
+        //       const SizedBox(height: 3),
+        //       fitContainerBuild(
+        //         title: "RAISES THE KNEES",
+        //         subTitle: "Repeat 2 Times",
+        //         time: "01:00 MIN",
+        //         gifPath: 'assets/images/gifs/ex5.gif',
+        //       ),
+        //       const SizedBox(height: 3),
+        //       fitContainerBuild(
+        //         title: "RAISES THE KNEES",
+        //         subTitle: "Repeat 2 Times",
+        //         time: "01:00 MIN",
+        //         gifPath: 'assets/images/gifs/ex6.gif',
+        //       ),
+        //       const SizedBox(height: 3),
+        //       fitContainerBuild(
+        //         title: "RAISES THE KNEES",
+        //         subTitle: "Repeat 2 Times",
+        //         time: "01:00 MIN",
+        //         gifPath: 'assets/images/gifs/ex7.gif',
+        //       ),
+        //       const SizedBox(height: 3),
+        //       fitContainerBuild(
+        //         title: "RAISES THE KNEES",
+        //         subTitle: "Repeat 2 Times",
+        //         time: "01:00 MIN",
+        //         gifPath: 'assets/images/gifs/ex8.gif',
+        //       ),
+        //       const SizedBox(height: 3),
+        //       fitContainerBuild(
+        //         title: "RAISES THE KNEES",
+        //         subTitle: "Repeat 2 Times",
+        //         time: "01:00 MIN",
+        //         gifPath: 'assets/images/gifs/Ex9.gif',
+        //       ),
+        //       const SizedBox(height: 3),
+        //       fitContainerBuild(
+        //         title: "RAISES THE KNEES",
+        //         subTitle: "Repeat 2 Times",
+        //         time: "01:00 MIN",
+        //         gifPath: 'assets/images/gifs/Ex10.gif',
+        //       ),
+        //     ],
+        //   ),
+        // ),
       ),
     );
   }
@@ -110,6 +127,7 @@ class _FitGetStartedPage extends State<FitGetStartedPage> {
     required String subTitle,
     required String time,
     required String gifPath,
+    required int index,
   }) {
     return Column(
       children: [
@@ -164,8 +182,9 @@ class _FitGetStartedPage extends State<FitGetStartedPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const FitDetailPage(
-                          fitDataIndex: 0), // Need to refactor
+                      builder: (context) => FitDetailPage(
+                        fitDataIndex: index,
+                      ),
                     ),
                   );
                 },

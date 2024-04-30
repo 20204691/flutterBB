@@ -1,9 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../data/fit_data.dart';
 
@@ -64,6 +62,10 @@ class _FitDetailPageState extends State<FitDetailPage> {
     );
   }
 
+  void pauseTimer() {
+    timer?.cancel();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -113,6 +115,8 @@ class _FitDetailPageState extends State<FitDetailPage> {
                     onTap: () {
                       if (timer == null || !timer!.isActive) {
                         startTimer();
+                      } else {
+                        pauseTimer();
                       }
                     },
                     child: Stack(
@@ -156,7 +160,6 @@ class _FitDetailPageState extends State<FitDetailPage> {
                       Icons.skip_next,
                       size: 48, // Custom size of the icon
                     ),
-
                   ),
                 ],
               ),
@@ -178,17 +181,17 @@ class _FitDetailPageState extends State<FitDetailPage> {
                           });
                         },
                         style: ElevatedButton.styleFrom(
-                            shape: const RoundedRectangleBorder(),
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 10,
-                              horizontal: 20,
-                            )),
+                          shape: const RoundedRectangleBorder(),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                          ),
+                        ),
                         child: Row(
                           children: [
                             Image.asset(
-                              'assets/images/gifs/ex2.gif', // Замените 'assets/your_gif.gif' путем к вашему GIF-файлу
-                              width: 70, // Ширина GIF-файла
-                              height: 70, // Высота GIF-файла
+                              'assets/images/gifs/ex2.gif',
+                              width: 100,
+                              height: 100,
                             ),
                             const SizedBox(width: 50),
                             const Column(
@@ -200,7 +203,6 @@ class _FitDetailPageState extends State<FitDetailPage> {
                             ),
                           ],
                         ),
-
                       ),
                     )
                   : const SizedBox(),
@@ -219,7 +221,6 @@ class _FitDetailPageState extends State<FitDetailPage> {
               const SizedBox(height: 20),
             ],
           ),
-
         ),
       ),
     );
