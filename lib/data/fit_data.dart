@@ -4,13 +4,16 @@ class Fit {
   final String time;
   final String gitPath;
   final int seconds;
+  final int exerciseCount;
 
-  Fit(
-      {required this.title,
-      required this.subTitle,
-      required this.time,
-      required this.seconds,
-      required this.gitPath});
+  Fit({
+    required this.title,
+    required this.subTitle,
+    required this.time,
+    required this.seconds,
+    required this.gitPath,
+    this.exerciseCount = 0,
+  });
 }
 
 var fitData = [

@@ -16,7 +16,8 @@ class FitDetailPage extends StatefulWidget {
 
 class _FitDetailPageState extends State<FitDetailPage> {
   double _progressValue = 0;
-  int _timerDurationInSeconds = 60;
+  final int _timerDurationInSeconds = 60;
+
   late int _elapsedSeconds;
 
   Timer? timer;
@@ -54,6 +55,7 @@ class _FitDetailPageState extends State<FitDetailPage> {
             if (_elapsedSeconds < 10) {
               showNextExercise = true;
             }
+            if (_elapsedSeconds == 0) {}
             var temp = _timerDurationInSeconds - _elapsedSeconds;
             _progressValue = temp / _timerDurationInSeconds;
           });
@@ -82,8 +84,8 @@ class _FitDetailPageState extends State<FitDetailPage> {
               Image.asset(
                 currentFit.gitPath,
                 fit: BoxFit.cover,
-                width: 350, // Ширина изображения
-                height: 350, // Высота изображения
+                width: 350,
+                height: 350,
               ),
 
               const SizedBox(height: 90),

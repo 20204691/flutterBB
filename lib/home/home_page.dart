@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../sleep/sleep_page.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -65,7 +67,8 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           "Water",
-                          style: TextStyle(fontSize: 18,
+                          style: TextStyle(
+                            fontSize: 18,
                             color: Color.fromRGBO(94, 113, 183, 1),
                           ),
                         )
@@ -94,7 +97,8 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           "Medicine",
-                          style: TextStyle(fontSize: 18,
+                          style: TextStyle(
+                            fontSize: 18,
                             color: Color.fromRGBO(94, 113, 183, 1),
                           ),
                         )
@@ -128,7 +132,8 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           "Food",
-                          style: TextStyle(fontSize: 18,
+                          style: TextStyle(
+                            fontSize: 18,
                             color: Color.fromRGBO(94, 113, 183, 1),
                           ),
                         )
@@ -146,7 +151,13 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const SleepPage(),
+                        ),
+                      );
+                    },
                     child: const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -157,9 +168,9 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           "Sleep",
-                          style: TextStyle(fontSize: 18,
+                          style: TextStyle(
+                            fontSize: 18,
                             color: Color.fromRGBO(94, 113, 183, 1),
-
                           ),
                         )
                       ],
