@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "97709983955",
+    "project_id": "flutter-bodyboost",
+    "storage_bucket": "flutter-bodyboost.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97709983955:android:725f6ca777ef147fe1ec26",
+        "android_client_info": {
+          "package_name": "com.example.projects"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKXdt2lswRqczS7LdeBoAU1Kv7QPCCOdo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
