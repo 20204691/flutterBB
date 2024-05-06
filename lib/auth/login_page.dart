@@ -106,6 +106,9 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             (route) => false);
                       } else {
+                        setState(() {
+                          isLoading = false;
+                        });
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text('Login or Password is not correct!'),
