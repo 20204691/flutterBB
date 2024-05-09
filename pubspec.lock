@@ -49,30 +49,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
-  cloud_firestore:
-    dependency: "direct main"
-    description:
-      name: cloud_firestore
-      sha256: e461ea9ab23959102a780efcbccfe33c2ac46269928bc57093bbc0b526afc801
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.17.3"
-  cloud_firestore_platform_interface:
-    dependency: transitive
-    description:
-      name: cloud_firestore_platform_interface
-      sha256: "2e0b8db9a759ffc71086019f1bd27237e5e888ab1e99c507067ff8616acdfa24"
-      url: "https://pub.dev"
-    source: hosted
-    version: "6.2.3"
-  cloud_firestore_web:
-    dependency: transitive
-    description:
-      name: cloud_firestore_web
-      sha256: "37b6974bef5b0a7ecd31037ffb7d7bfe6bb9d2ac6c064fbea395411ef0a64d55"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.12.3"
   collection:
     dependency: transitive
     description:
@@ -169,6 +145,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.17.0"
+  firebase_database:
+    dependency: "direct main"
+    description:
+      name: firebase_database
+      sha256: "59c711cce8e998389b45723f68b0dad65bbfad77acd634ce2c562049aeab1a5e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "10.5.5"
+  firebase_database_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_database_platform_interface
+      sha256: "76c3e9d8f00c7e7bc1acd957dc29ac5696d67611fda38cf1371159b3c840a5e7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.5+33"
+  firebase_database_web:
+    dependency: transitive
+    description:
+      name: firebase_database_web
+      sha256: d5795e387f507e20146f689ddddb4674451492fbd513744c9513faaab761cad7
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.5+5"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -437,14 +437,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
-  syncfusion_flutter_calendar:
-    dependency: "direct main"
-    description:
-      name: syncfusion_flutter_calendar
-      sha256: "286ff7a451cebc8f21cc0fc7d0032040957851a2535616178bf54e8e488a833f"
-      url: "https://pub.dev"
-    source: hosted
-    version: "25.2.3"
   syncfusion_flutter_core:
     dependency: transitive
     description:
@@ -454,7 +446,7 @@ packages:
     source: hosted
     version: "25.2.3"
   syncfusion_flutter_datepicker:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: syncfusion_flutter_datepicker
       sha256: "50c8d4b5029313a1774f85a71a49319a840dc8fb12096ae041b20da4fbb9e58a"

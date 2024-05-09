@@ -1,5 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projects/common/dialogs/dialogs.dart';
+import 'package:projects/common/model/medicine_model.dart';
 
 import '../common/widgets/custom_text_field.dart';
 
@@ -12,11 +17,26 @@ class MedicinePage extends StatefulWidget {
 
 class _MedicinePageState extends State<MedicinePage> {
   final TextEditingController _medicationName = TextEditingController();
-  bool switchValue = true;
+  final TextEditingController _dosageController = TextEditingController();
+  final TextEditingController _unitController = TextEditingController();
+  final TextEditingController _frequencyController = TextEditingController();
+  final TextEditingController _takenAt = TextEditingController();
+  final TextEditingController _startDateController = TextEditingController();
+
+  bool switchValue = false;
 
   var frequencies = ["Daily", "Weekly", "Monthly"];
 
   String selectedFrequency = "";
+
+  TimeOfDay selectedTime =
+      TimeOfDay(hour: DateTime.now().hour, minute: DateTime.now().minute);
+
+  @override
+  void initState() {
+    RealtimeDatabase.read(userId: FirebaseAuth.instance.currentUser!.uid);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +82,7 @@ class _MedicinePageState extends State<MedicinePage> {
                           child: CustomTextField(
                             hintText: 'Dosage',
                             keyboardType: TextInputType.text,
-                            controller: _medicationName,
+                            controller: _dosageController,
                             backgroundColor:
                                 const Color.fromARGB(255, 216, 216, 216),
                           ),
@@ -72,7 +92,7 @@ class _MedicinePageState extends State<MedicinePage> {
                           child: CustomTextField(
                             hintText: 'Units',
                             keyboardType: TextInputType.text,
-                            controller: _medicationName,
+                            controller: _unitController,
                             backgroundColor:
                                 const Color.fromARGB(255, 216, 216, 216),
                           ),
@@ -97,22 +117,38 @@ class _MedicinePageState extends State<MedicinePage> {
                     Row(
                       children: [
                         Expanded(
-                          child: CustomTextField(
-                            hintText: 'Start date',
-                            keyboardType: TextInputType.text,
-                            controller: _medicationName,
-                            backgroundColor:
-                                const Color.fromARGB(255, 216, 216, 216),
+                          child: GestureDetector(
+                            onTap: () {
+                              DateDialogs.showDate(
+                                context,
+                                (dateTime) => _startDateController.text =
+                                    dateTime.toString().substring(0, 10),
+                              );
+                            },
+                            child: CustomTextField(
+                              enabled: false,
+                              hintText: 'Start date',
+                              keyboardType: TextInputType.text,
+                              controller: _startDateController,
+                              backgroundColor:
+                                  const Color.fromARGB(255, 216, 216, 216),
+                            ),
                           ),
                         ),
                         const SizedBox(width: 4),
                         Expanded(
-                          child: CustomTextField(
-                            hintText: 'Taken at',
-                            keyboardType: TextInputType.text,
-                            controller: _medicationName,
-                            backgroundColor:
-                                const Color.fromARGB(255, 216, 216, 216),
+                          child: GestureDetector(
+                            onTap: () {
+                              _selectTime(context);
+                            },
+                            child: CustomTextField(
+                              enabled: false,
+                              hintText: 'Taken at',
+                              keyboardType: TextInputType.text,
+                              controller: _takenAt,
+                              backgroundColor:
+                                  const Color.fromARGB(255, 216, 216, 216),
+                            ),
                           ),
                         ),
                       ],
@@ -131,7 +167,21 @@ class _MedicinePageState extends State<MedicinePage> {
                       borderRadius: BorderRadius.circular(16)),
                   padding: const EdgeInsets.symmetric(vertical: 16),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  var userId = FirebaseAuth.instance.currentUser?.uid;
+                  if (userId != null) {
+                    var data = {
+                      'name': _medicationName.text,
+                      'dosage': _dosageController.text,
+                      'units': _unitController.text,
+                      "frequency": _frequencyController.text,
+                      "start_date": _startDateController.text,
+                      "taken": "${selectedTime.hour}:${selectedTime.minute}",
+                    };
+
+                    RealtimeDatabase.write(userId: userId, data: data);
+                  }
+                },
                 child: const Text(
                   "Save",
                   style: TextStyle(color: Colors.white),
@@ -144,18 +194,33 @@ class _MedicinePageState extends State<MedicinePage> {
     );
   }
 
+  Future<void> _selectTime(BuildContext context) async {
+    final TimeOfDay? pickedTime = await showTimePicker(
+      context: context,
+      initialTime: selectedTime,
+    );
+
+    if (pickedTime != null && pickedTime != selectedTime) {
+      setState(() {
+        selectedTime = pickedTime;
+        _takenAt.text = "${selectedTime.hour}:${selectedTime.minute}";
+      });
+    }
+  }
+
   Widget _medicineDropDownBuild() {
     return PopupMenuButton<String>(
       position: PopupMenuPosition.under,
       onSelected: (value) {
         setState(() {
-          selectedFrequency = value;
+          _frequencyController.text = value;
         });
       },
       itemBuilder: (BuildContext context) {
         return frequencies
             .map(
               (e) => PopupMenuItem<String>(
+                value: e,
                 child: Text(e),
               ),
             )
@@ -166,7 +231,7 @@ class _MedicinePageState extends State<MedicinePage> {
         hintText:
             selectedFrequency.isEmpty ? 'Name of medicine' : selectedFrequency,
         keyboardType: TextInputType.text,
-        controller: _medicationName,
+        controller: _frequencyController,
         backgroundColor: const Color.fromARGB(255, 216, 216, 216),
       ),
     );
