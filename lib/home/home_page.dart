@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../medicine/medicine_page.dart';
 import '../sleep/sleep_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -86,7 +87,14 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MedicinePage(),
+                        ),
+                      );
+                    },
                     child: const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

@@ -10,6 +10,8 @@ class CustomTextField extends StatelessWidget {
   final Color? backgroundColor;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
+  final Function()? onTap;
+  final bool enabled;
 
   const CustomTextField({
     super.key,
@@ -22,6 +24,8 @@ class CustomTextField extends StatelessWidget {
     this.backgroundColor,
     this.prefixIcon,
     this.suffixIcon,
+    this.onTap,
+    this.enabled = true,
   });
 
   @override
@@ -34,6 +38,8 @@ class CustomTextField extends StatelessWidget {
         keyboardType: keyboardType,
         onChanged: onChanged,
         validator: validator,
+        onTap: onTap,
+        enabled: enabled,
         decoration: InputDecoration(
           hintText: hintText,
           prefixIcon: prefixIcon,
