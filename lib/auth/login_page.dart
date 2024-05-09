@@ -91,20 +91,19 @@ class _LoginPageState extends State<LoginPage> {
                       });
                       User? user = FirebaseAuth.instance.currentUser;
                       await user?.reload();
+                      if (user?.emailVerified ?? false) {}
                       var response = await AuthService().login(
                           email: _emailController.text,
                           password: _passwordController.text);
 
                       if (response == "Success") {
-                        setState(() {
-                          isLoading = false;
-                        });
                         Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const MainPage(),
-                            ),
-                            (route) => false);
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const MainPage(),
+                          ),
+                          (route) => false,
+                        );
                       } else {
                         setState(() {
                           isLoading = false;

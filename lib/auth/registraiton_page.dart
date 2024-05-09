@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projects/auth/login_page.dart';
+import 'package:projects/auth/verify_email_page.dart';
 import 'package:projects/services/auth_service.dart';
 
 import '../common/widgets/custom_text_field.dart';
@@ -110,10 +110,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         var response = await AuthService()
                             .registration(email: email, password: password);
 
-                        if (response!.contains('Success')) {
+                        if (response.contains('Success')) {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => const LoginPage(),
+                              builder: (context) => const VerifyEmailPage(),
                             ),
                           );
                         }

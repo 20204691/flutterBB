@@ -1,18 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
-  Future<String?> registration({
+  Future<String> registration({
     required String email,
     required String password,
   }) async {
     try {
-      var userCredentials =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
-
-      userCredentials.user?.sendEmailVerification();
 
       return 'Success';
     } on FirebaseAuthException catch (e) {
@@ -21,7 +18,7 @@ class AuthService {
       } else if (e.code == 'email-already-in-use') {
         return 'The account already exists for that email.';
       } else {
-        return e.message;
+        return e.message.toString();
       }
     } catch (e) {
       return e.toString();
@@ -33,11 +30,16 @@ class AuthService {
     required String password,
   }) async {
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      var data = await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
-      return 'Success';
+
+      if (data.user?.emailVerified ?? false) {
+        return 'Success';
+      }
+
+      return null;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         return 'No user found for that email.';
