@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../medicine/medicine_page.dart';
+import '../medicine/medicine_list_page.dart';
 import '../sleep/sleep_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const MedicinePage(),
+                          builder: (context) => const MedicineListPage(),
                         ),
                       );
                     },
